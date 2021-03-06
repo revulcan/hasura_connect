@@ -37,6 +37,7 @@ class PostHttpRequest implements RequestDatasource {
       // When the phone is offline, the httpClient throws SocketException,
       // which will be converted to ConnectionError, so that the CacheInterceptor can,
       // handle the exception and serve the cached data
+      print('Caught : ${e.toString()}');
       throw ConnectionError('Connection Rejected', request: request);
     } finally {
       client.close();
