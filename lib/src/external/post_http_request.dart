@@ -15,7 +15,7 @@ class PostHttpRequest implements RequestDatasource {
   Future<Response> post({Request request}) async {
     final client = clientFactory();
     try {
-      var response = await client.post(request.url,
+      var response = await client.post(Uri.parse(request.url),
           body: request.query.toString(), headers: request.headers);
       if (response.statusCode == 200) {
         Map json = jsonDecode(response.body);
